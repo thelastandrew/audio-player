@@ -30,12 +30,12 @@ body {
   flex-direction: column;
 }
 
-.cover-img {
+.cover {
   border: 2px solid #85a2b6;
   margin-bottom: 15px;
 }
 
-.cover-img img {
+.cover-img {
   display: block;
   width: 100%;
 }
@@ -67,8 +67,8 @@ body {
   justify-content: space-between;
 }
 
-#progress-bar,
-#volume-bar {
+.progress-bar,
+.volume-bar {
   width: 100%;
 }
 
