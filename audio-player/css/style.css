@@ -10,6 +10,7 @@ body {
   width: 100vw;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background: linear-gradient(-60deg, #4e565c, #587387);
@@ -17,6 +18,7 @@ body {
   color: #ccd3d8;
   font-size: 16px;
   line-height: 1.5em;
+  position: relative;
 }
 
 .player {
@@ -121,4 +123,40 @@ input::-webkit-slider-thumb {
   background: linear-gradient(#747a7e, #3b3e41);
   border: 1px solid #e6eff5;
   border-radius: 3px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  min-height: 80px;
+  padding-top: 10px;
+  background: linear-gradient(220deg, #35576e, #1e2f3b);
+}
+
+.footer .container {
+  max-width: 70%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 426px) {
+  .footer .container {
+    flex-direction: column;
+  }
+}
+
+.rs-school {
+  width: 150px;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: #ccd3d8;
+  font-weight: 700;
 }
