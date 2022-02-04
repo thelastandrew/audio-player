@@ -11,7 +11,7 @@ const progressBar = document.querySelector(".progress-bar");
 const prevBtn = document.querySelector(".prev");
 const playBtn = document.querySelector(".play");
 const nextBtn = document.querySelector(".next");
-const volumeBtn = document.querySelector(".volume");
+const volumeBtn = document.querySelector(".volume.btn");
 const volumeBar = document.querySelector(".volume-bar");
 const songs = [
   {
@@ -126,6 +126,40 @@ audio.addEventListener("timeupdate", updateProgress);
 progressBar.addEventListener("input", (e) => {
   let value = e.target.value;
   audio.currentTime = Number(value);
+});
+
+//Volume
+function muteVolume() {
+  player.classList.add("muted");
+  volumeBtn.classList.remove("_icon-volume");
+  volumeBtn.classList.add("_icon-mute");
+  audio.muted = true;
+}
+
+function unmuteVolume() {
+  player.classList.remove("muted");
+  volumeBtn.classList.add("_icon-volume");
+  volumeBtn.classList.remove("_icon-mute");
+  audio.muted = false;
+}
+
+volumeBtn.addEventListener("click", (e) => {
+  let isMuted = player.classList.contains("muted");
+  if (isMuted) {
+    unmuteVolume();
+  } else {
+    muteVolume();
+  }
+});
+
+volumeBar.addEventListener("input", (e) => {
+  let volume = e.target.value;
+  audio.volume = Number(volume / 100);
+  if (audio.volume === 0) {
+    muteVolume();
+  } else if (audio.volume > 0) {
+    unmuteVolume();
+  }
 });
 
 //Transforms num in time code format
