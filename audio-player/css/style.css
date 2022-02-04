@@ -103,6 +103,10 @@ body {
   transform: scale(1.1);
 }
 
+.btn:active {
+  transform: none;
+}
+
 input[type="range"] {
   appearance: none;
   background: #ccd3d8;
