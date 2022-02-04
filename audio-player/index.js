@@ -5,7 +5,7 @@ const songTitle = document.querySelector(".song-title");
 const artistName = document.querySelector(".artist-name");
 const albumTitle = document.querySelector(".album-title");
 const albumYear = document.querySelector(".album-year");
-const currentTime = document.querySelector(".current-time");
+const current = document.querySelector(".current-time");
 const duration = document.querySelector(".duration");
 const progressBar = document.querySelector(".progress-bar");
 const prevBtn = document.querySelector(".prev");
@@ -50,15 +50,32 @@ function pauseSong() {
   audio.pause();
 }
 
-//Switch the song
-function switchSong(songIndex) {
-  audio.src = `./assets/audio/${songs[songIndex]["song-title"]}_Caretaker.mp3`;
+//Stop
+function audioStop() {
+  player.classList.remove("play");
+  playBtn.classList.add("_icon-play");
+  playBtn.classList.remove("_icon-pause");
+  current.innerHTML = "0:00";
+  progressBar.value = 0;
+}
+
+audio.addEventListener("ended", audioStop);
+
+//Set the song
+function setSong(songIndex) {
+  audio.src = `./assets/audio/${songs[songIndex]["song-title"]}.mp3`;
   coverImg.src = `./assets/img/jpg/stage${songIndex + 1}.jpg`;
   songTitle.innerHTML = `${songs[songIndex]["song-title"]}`;
   artistName.innerHTML = `${songs[songIndex]["artist-name"]}`;
   albumTitle.innerHTML = `${songs[songIndex]["album-title"]}`;
   albumYear.innerHTML = `${songs[songIndex]["album-year"]}`;
 }
+
+audio.addEventListener("loadeddata", () => {
+  const durationTime = audio.duration;
+  duration.innerHTML = getTimeCodeFromNum(durationTime);
+  progressBar.max = durationTime;
+});
 
 //Play-pause button
 playBtn.addEventListener("click", (e) => {
@@ -78,7 +95,7 @@ nextBtn.addEventListener("click", (e) => {
   } else {
     songIndex += 1;
   }
-  switchSong(songIndex);
+  setSong(songIndex);
   if (isPlaying) {
     playSong();
   }
@@ -92,8 +109,35 @@ prevBtn.addEventListener("click", (e) => {
   } else {
     songIndex -= 1;
   }
-  switchSong(songIndex);
+  setSong(songIndex);
   if (isPlaying) {
     playSong();
   }
 });
+
+//Progress bar
+function updateProgress(e) {
+  let currentTime = audio.currentTime;
+  current.innerHTML = getTimeCodeFromNum(currentTime);
+  progressBar.value = currentTime;
+}
+
+audio.addEventListener("timeupdate", updateProgress);
+progressBar.addEventListener("input", (e) => {
+  let value = e.target.value;
+  audio.currentTime = Number(value);
+});
+
+//Transforms num in time code format
+function getTimeCodeFromNum(num) {
+  let seconds = parseInt(num);
+  let minutes = parseInt(seconds / 60);
+  seconds -= minutes * 60;
+  const hours = parseInt(minutes / 60);
+  minutes -= hours * 60;
+
+  if (hours === 0) return `${minutes}:${String(seconds % 60).padStart(2, 0)}`;
+  return `${String(hours).padStart(2, 0)}:${minutes}:${String(
+    seconds % 60
+  ).padStart(2, 0)}`;
+}
