@@ -109,7 +109,7 @@ body {
   transform: none;
 }
 
-input[type="range"] {
+input[type='range'] {
   appearance: none;
   background: #ccd3d8;
   height: 10px;
@@ -131,7 +131,7 @@ input::-webkit-slider-thumb {
   left: 0;
   width: 100%;
   min-height: 40px;
-  padding-top: 10px;
+  padding-top: 5px;
   background: linear-gradient(220deg, #35576e, #1e2f3b);
 }
 
@@ -142,12 +142,6 @@ input::-webkit-slider-thumb {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-}
-
-@media (max-width: 426px) {
-  .footer .container {
-    flex-direction: column;
-  }
 }
 
 .rs-school {
