@@ -130,7 +130,7 @@ input::-webkit-slider-thumb {
   bottom: 0;
   left: 0;
   width: 100%;
-  min-height: 80px;
+  min-height: 40px;
   padding-top: 10px;
   background: linear-gradient(220deg, #35576e, #1e2f3b);
 }
@@ -151,7 +151,7 @@ input::-webkit-slider-thumb {
 }
 
 .rs-school {
-  width: 150px;
+  width: 60px;
 }
 
 a {
