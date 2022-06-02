@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/icons-font.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Audio Player</title>
+  <link rel="icon" type="image/x-icon" href="./assets/img/play-circle.ico">
+</head>
+
+<body>
+  <div class="player">
+    <audio class="audio" src="./assets/audio/A1 - It s just a burning memory.mp3">
+    </audio>
+    <div class="cover">
+      <img class="cover-img" src="./assets/img/jpg/stage1.jpg" alt="cover-img">
+    </div>
+    <div class="song-info">
+      <div class="left">
+        <p>Song:</p>
+        <p>Artist:</p>
+        <p>Album:</p>
+        <p>Year:</p>
+      </div>
+      <div class="right">
+        <div class="song-title">A1 - It s just a burning memory</div>
+        <div class="artist-name">The Caretaker</div>
+        <div class="album-title">Everywhere at the End of Time</div>
+        <div class="album-year">2016</div>
+      </div>
+    </div>
+    <div class="controls">
+      <div class="controls-top">
+        <div class="time">
+          <p class="current-time">0:00</p>
+          <p class="duration">0:00</p>
+        </div>
+        <div class="progress">
+          <input class="progress-bar" type="range" value="0" min="0" max="100" step="1">
+        </div>
+      </div>
+      <div class="controls-bottom">
+        <div class="buttons">
+          <div class="prev btn _icon-prev"></div>
+          <div class="play btn _icon-play"></div>
+          <div class="next btn _icon-next"></div>
+        </div>
+        <div class="volume">
+          <div class="volume btn _icon-volume"></div>
+          <input class="volume-bar" type="range" value="30" min="0" max="100" step="1">
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <div class="github"><a href="https://github.com/thelastandrew" target="_blank">thelastandrew </a>&copy; 2022
+      </div>
+      <div class="rs-school">
+        <a href="https://rs.school/js-stage0/" target="_blank"><img src="./assets/img/svg/rs_school_js.svg"
+            alt="RS School logo"></a>
+      </div>
+    </div>
+  </footer>
+  <script src="./index.js"></script>
+</body>
+
+</html>

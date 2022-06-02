@@ -1,0 +1,156 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(-60deg, #4e565c, #587387);
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ccd3d8;
+  font-size: 16px;
+  line-height: 1.5em;
+  position: relative;
+}
+
+.player {
+  width: 350px;
+  height: 550px;
+  background: linear-gradient(220deg, #35576e, #1e2f3b);
+  border-radius: 15px;
+  box-shadow: #1e2f3b 9px 9px 20px 0px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cover {
+  border: 2px solid #85a2b6;
+  margin-bottom: 15px;
+}
+
+.cover-img {
+  display: block;
+  width: 100%;
+}
+
+.song-info {
+  display: flex;
+  flex-direction: row;
+}
+
+.left,
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.left {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.right {
+  flex-grow: 1.5;
+}
+
+.time {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.progress-bar,
+.volume-bar {
+  width: 100%;
+}
+
+.controls-bottom,
+.buttons,
+.volume {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 2.5rem;
+}
+
+.controls-bottom {
+  gap: 10px;
+}
+
+.buttons,
+.volume {
+  width: 50%;
+}
+
+.buttons .btn:not(:nth-last-child(1)) {
+  margin-right: 10px;
+}
+
+.btn {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}
+
+.btn:active {
+  transform: none;
+}
+
+input[type='range'] {
+  appearance: none;
+  background: #ccd3d8;
+  height: 10px;
+  border-radius: 2px;
+}
+
+input::-webkit-slider-thumb {
+  appearance: none;
+  width: 10px;
+  height: 15px;
+  background: linear-gradient(#747a7e, #3b3e41);
+  border: 1px solid #e6eff5;
+  border-radius: 3px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  min-height: 40px;
+  padding-top: 5px;
+  background: linear-gradient(220deg, #35576e, #1e2f3b);
+}
+
+.footer .container {
+  max-width: 70%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rs-school {
+  width: 60px;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: #ccd3d8;
+  font-weight: 700;
+}
